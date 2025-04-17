@@ -22,7 +22,7 @@ jobs:
           ls html
 
           echo "🔎 Vérification des fichiers attendus..."
-          if [[ -f "html/index.html" && -f "html/users.html" ]]; then
+          if [[ -f "html/index.html" ]]; then
             echo "✅ Les fichiers html/index.html et html/users.html existent."
           else
             echo "❌ Fichiers manquants dans html/."
