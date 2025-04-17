@@ -16,7 +16,7 @@ jobs:
 
       - name: Vérifier que les fichiers HTML existent
         run: |
-          if [ -f "index.html" ] && [ -f "inde.html" ]; then
+          if [ -f "index.html" ] ; then
             echo "Les fichiers HTML sont présents."
           else
             echo "Un ou plusieurs fichiers HTML sont manquants."
