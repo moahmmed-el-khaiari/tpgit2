@@ -5,20 +5,26 @@ on:
     branches:
       - master
   pull_request:
+    branches:
+      - master
 
 jobs:
-  verifier-html:
+  check-html:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Cloner le dépôt
+      - name: Récupérer le code
         uses: actions/checkout@v3
 
-      - name: Vérifier que les fichiers HTML existent
+      - name: Vérifier les fichiers HTML dans le dossier /html
         run: |
-          if [ -f "index.html" ] ; then
-            echo "Les fichiers HTML sont présents."
+          echo "📁 Fichiers HTML présents dans /html :"
+          ls html
+
+          echo "🔎 Vérification des fichiers attendus..."
+          if [[ -f "html/index.html" && -f "html/users.html" ]]; then
+            echo "✅ Les fichiers html/index.html et html/users.html existent."
           else
-            echo "Un ou plusieurs fichiers HTML sont manquants."
+            echo "❌ Fichiers manquants dans html/."
             exit 1
           fi
